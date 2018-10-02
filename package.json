@@ -1,0 +1,22 @@
+{
+  "name": "JScourse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist --presets env",
+    "watch": "babel src -d dist --presets env -w"
+  },
+  "keywords": [],
+  "author": "Stahlwittchen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stahlwittchen/JScourse"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  }
+}
