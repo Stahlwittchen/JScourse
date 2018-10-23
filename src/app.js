@@ -12,7 +12,9 @@ app.set('view engine', 'html');
 app.get('/', function (req, res) {
     res
         .status(200)
-        .json(names);
+        .render('home',{
+            locals: {MyData: names}
+        })
 });
 
 app.get('/:name', function (req, res) {
@@ -22,7 +24,10 @@ app.get('/:name', function (req, res) {
             .json({message: `${req.params.name} not found`})
     }
     res.render('index',{
-        locals: {user: req.params.name}
+        locals: {
+            user: req.params.name,
+            desc: name.desc
+        }
     })
 });
 
