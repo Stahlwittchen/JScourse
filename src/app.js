@@ -6,14 +6,17 @@ import _ from 'underscore';
 import names from './data';
 
 app.engine('html', es6Renderer);
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/templates');
 app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
     res
         .status(200)
         .render('home',{
-            locals: {MyData: names}
+            locals: {MyData: names},
+            partials: {
+                nav: '/nav'
+            }
         })
 });
 
@@ -27,6 +30,9 @@ app.get('/:name', function (req, res) {
         locals: {
             user: req.params.name,
             desc: name.desc
+        },
+        partials: {
+            nav: '/nav'
         }
     })
 });
