@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist --presets env",
-    "watch": "babel src -d dist --presets env -w"
+    "start": "nodemon --exec babel-node src/index.js "
   },
   "keywords": [],
   "author": "Stahlwittchen",
@@ -17,6 +16,11 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "underscore": "^1.9.1"
   }
 }

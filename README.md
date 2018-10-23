@@ -1,4 +1,4 @@
 # JScourse
 ```sh
-$ npm run watch. 
+$ npm start.
 ```
