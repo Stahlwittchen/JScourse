@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "express-es6-template-engine": "^2.1.5",
     "underscore": "^1.9.1"
   }
 }
