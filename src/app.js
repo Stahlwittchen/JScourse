@@ -8,6 +8,7 @@ import names from './data';
 app.engine('html', es6Renderer);
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'html');
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
     res
@@ -15,6 +16,18 @@ app.get('/', function (req, res) {
         .render('home',{
             locals: {MyData: names},
             partials: {
+                pageHead: '/page-head',
+                nav: '/nav'
+            }
+        })
+});
+
+app.get('/contacts', function (req, res) {
+    res
+        .status(200)
+        .render('contacts',{
+            partials: {
+                pageHead: '/page-head',
                 nav: '/nav'
             }
         })
@@ -32,6 +45,7 @@ app.get('/:name', function (req, res) {
             desc: name.desc
         },
         partials: {
+            pageHead: '/page-head',
             nav: '/nav'
         }
     })

@@ -1,0 +1,69 @@
+@import "order-form";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Kalam', sans-serif;
+  background: fade-out($base, .85);
+  color: darken($heading, 10%);
+}
+
+main {
+  width: 1024px;
+  margin: auto;
+}
+
+header {
+  background: fade-out($base, .75);
+}
+
+h1 {
+  font-family: 'Niconne', cursive;
+  color: $heading;
+  font-size: 50px;
+  padding: 30px 10px;
+}
+
+@mixin list {
+  list-style-type: none;
+  text-decoration: none;
+}
+@mixin links {
+  color: darken($heading, 10%);
+  text-decoration: none;
+  padding: 5px 10px;
+  display: inline-block;
+  line-height: 18px;
+}
+
+.main-nav {
+  display: flex;
+  padding: 10px;
+  list-style-type: none;
+  width: 1024px;
+  margin: auto;
+  li {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    @include links;
+    color: #fff;
+    border-radius: 5px;
+    &:hover, &.active {
+      background: linear-gradient(to right, fade-out($base, .87), fade-out($base, .92));
+    }
+  }
+}
+.main-list {
+  @include list;
+  &__link {
+    @include links;
+  }
+}
