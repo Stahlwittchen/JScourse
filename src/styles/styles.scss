@@ -55,9 +55,9 @@ h1 {
   &__link {
     @include links;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 20px 5px;
     &:hover, &.active {
-      background: linear-gradient(to right, fade-out($base, .87), fade-out($base, .92));
+      background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
     }
   }
 }
@@ -66,4 +66,19 @@ h1 {
   &__link {
     @include links;
   }
+}
+
+.bth {
+  padding: 5px 10px;
+  border: 0;
+  color: #fff;
+  background: fade-out(forestgreen, .2);
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background: forestgreen;
+  }
+}
+.btn-container {
+  text-align: right;
 }
