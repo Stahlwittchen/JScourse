@@ -1,0 +1,32 @@
+[
+  {
+    "title": "first",
+    "desc": "some information",
+    "countOfSeats": 5,
+    "upcomingClasses": [
+      {
+        "date": "01.11.2018",
+        "booked": [
+          {
+            "name": "Mary",
+            "phone": "123-12-12",
+            "payment": true
+          },
+          {
+            "name": "Jane",
+            "phone": "567-23-12",
+            "payment": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "second",
+    "desc": "another information"
+  },
+  {
+    "title": "third",
+    "desc": "fuck off, lazy to type"
+  }
+]

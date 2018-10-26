@@ -1,0 +1,17 @@
+.auth-form {
+  input{
+    border: 0;
+    outline: 0;
+    background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+
+    &::placeholder {
+      font-family: 'Kalam', sans-serif;
+    }
+    &.bth:hover {
+      background: linear-gradient(to left bottom, fade-out($base, .5), fade-out($base, .85));
+    }
+  }
+}
