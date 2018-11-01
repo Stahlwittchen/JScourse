@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');
 app.use(express.static(__dirname + '/public'));
 
-// app.use('/', home);
+app.use('/', home);
 // app.use('/recipes', recipe);
 app.use('/booking', booking);
 
