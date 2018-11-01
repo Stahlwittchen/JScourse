@@ -1,16 +1,13 @@
-${pageHead}
-
+<% include page-head.ejs %>
 <body>
-    ${nav}
+    <% include nav %>
     <main>
         <h1>Booking</h1>
         <div class="order">
             <ul id="order" class="order_entity">
-                <li>first</li>
-                <li>second</li>
-                <li>third</li>
-                <li>fourth</li>
-                <li>fifth</li>
+                <% list.forEach(function(item) { %>
+                <li><%= item.title %></li>
+                <% }); %>
             </ul>
             <div class="order__details">
                 <ul class="entity-details">
