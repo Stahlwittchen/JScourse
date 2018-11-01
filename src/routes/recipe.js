@@ -3,7 +3,7 @@ const router = express.Router();
 import receipts from '../public/data/receipts';
 import _ from "underscore";
 
-router.get('/', function (req, res) {
+router.get('/:name', function (req, res) {
     const name = _.find(receipts, {name: req.params.name});
     if (name === undefined ) {
         res.status(404)
