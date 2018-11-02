@@ -1,6 +1,6 @@
 [
   {
-    "title": "first",
+    "title": "Cookies class",
     "desc": "some information",
     "countOfSeats": 5,
     "upcomingClasses": [
@@ -22,11 +22,31 @@
     ]
   },
   {
-    "title": "second",
-    "desc": "another information"
+    "title": "Cheesecake class",
+    "desc": "another information",
+    "countOfSeats": 4,
+    "upcomingClasses": [
+      {
+        "date": "04.11.2018",
+        "booked": [
+          {
+            "name": "Lucy",
+            "phone": "123-12-12",
+            "payment": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "title": "third",
-    "desc": "fuck off, lazy to type"
+    "title": "Apple pie class",
+    "desc": "fuck off, lazy to type",
+    "countOfSeats": 6,
+    "upcomingClasses": [
+      {
+        "date": "06.11.2018",
+        "booked": [  ]
+      }
+    ]
   }
 ]
