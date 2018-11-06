@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Cheesecake",
+    "desc": "delicious classic cheesecake",
+    "author": "Stahlwittchen",
+    "image": "/svg/cake.svg",
+    "ingredients": [],
+    "steps": []
+  },
+  {
+    "title": "Oat cookies",
+    "desc": "these are magic homemade cookies according to a family recipe",
+    "author": "Daphne",
+    "image": "/svg/cake.svg",
+    "ingredients": [],
+    "steps": []
+  }
+]

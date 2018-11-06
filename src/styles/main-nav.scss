@@ -1,0 +1,39 @@
+.main-nav {
+  display: flex;
+  padding: 10px;
+  list-style-type: none;
+  width: 1024px;
+  margin: auto;
+  li {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: unset;
+      //margin-left: auto;
+    }
+  }
+  &__link {
+    @include links;
+    color: #fff;
+    border-radius: 20px 5px;
+    &:hover, &.active {
+      background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
+    }
+  }
+  //&__icon{
+  //  width: 20px;
+  //  height: 20px;
+  //  display: inline-block;
+  //}
+  //.cake {
+  //  background: url("../svg/cake.svg");
+  //}
+  //.baker {
+  //  background: url("../svg/baker.svg");
+  //}
+}
+.main-list {
+  @include list;
+  &__link {
+    @include links;
+  }
+}

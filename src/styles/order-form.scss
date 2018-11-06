@@ -10,20 +10,18 @@
   }
   &_entity {
     list-style-type: none;
-    opacity: .8;
     text-align: center;
     li {
       padding: 5px 10px;
-      background: linear-gradient(to right top, fade-out($base, .9), fade-in($base, .4));
+      background: linear-gradient(to right top, fade-out(#828282, .9), fade-in(#828282, .9));
       color: #ffffff;
-      opacity: 0.8;
       margin-bottom: 5px;
       cursor: pointer;
       &:last-child {
         margin-bottom: 0;
       }
-      &:hover {
-        background: linear-gradient(to right top, fade-out($base, .7), fade-in($base, .2));
+      &:hover, &.active {
+        box-shadow: inset 0 0 12px 10px #7d7c7c;
       }
     }
   }
@@ -31,4 +29,11 @@
 .entity-details {
   list-style-type: none;
   padding-bottom: 20px;
+
+  &__item {
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
 }

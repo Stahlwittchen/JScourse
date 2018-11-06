@@ -1,0 +1,14 @@
+<% include page-head.ejs %>
+
+<body>
+    <% include nav.ejs %>
+    <main>
+        <h1>Main heading</h1>
+        <ul class="main-list">
+            <% list.forEach(function(item) { %>
+                <li><a class="main-list__link " href="recipes/<%= item.title %>"><%= item.title %></a></li>
+            <% }); %>
+        </ul>
+    </main>
+</body>
+</html>

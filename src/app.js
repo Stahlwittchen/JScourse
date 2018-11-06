@@ -1,54 +1,32 @@
 import express from 'express';
-import es6Renderer from 'express-es6-template-engine';
 const app = express();
 
-import _ from 'underscore';
-import names from './data';
+import session from 'express-session';
+import bodyParser from 'body-parser';
 
-app.engine('html', es6Renderer);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(session({
+    secret: 'session-secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+import auth from './routes/auth';
+import home from './routes/home'
+import booking from './routes/booking'
+import account from './routes/account'
+import recipe from './routes/recipe';
+
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');
-app.set('view engine', 'html');
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-    res
-        .status(200)
-        .render('home',{
-            locals: {MyData: names},
-            partials: {
-                pageHead: '/page-head',
-                nav: '/nav'
-            }
-        })
-});
-
-app.get('/contacts', function (req, res) {
-    res
-        .status(200)
-        .render('contacts',{
-            partials: {
-                pageHead: '/page-head',
-                nav: '/nav'
-            }
-        })
-});
-
-app.get('/:name', function (req, res) {
-    const name = _.find(names, {name: req.params.name});
-    if (name === undefined ) {
-        res.status(404)
-            .json({message: `${req.params.name} not found`})
-    }
-    res.render('index',{
-        locals: {
-            user: req.params.name,
-            desc: name.desc
-        },
-        partials: {
-            pageHead: '/page-head',
-            nav: '/nav'
-        }
-    })
-});
+app.use('/', home);
+app.use('/auth', auth);
+app.use('/recipes', recipe);
+app.use('/booking', booking);
+app.use('/account', account);
 
 module.exports = app;

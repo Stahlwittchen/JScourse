@@ -1,0 +1,23 @@
+<header>
+    <nav>
+        <ul class="main-nav">
+            <li>
+                <a href="/" class="main-nav__link <%= (menuID==='home')?'active':'' %>">
+                    <!--<span class="main-nav__icon cake"></span>-->
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/booking" class="main-nav__link <%= (menuID==='booking')?'active':'' %>" >
+                    <!--<span class="main-nav__icon baker"></span>-->
+                    Booking
+                </a>
+            </li>
+            <li>
+                <a href="<%= user?'/account':'/auth' %>" class="main-nav__link" >
+                    <%= user?user:`sign up` %>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,31 @@
+<% include page-head.ejs %>
+
+<body>
+<% include nav.ejs %>
+    <main>
+        <div class="user-details">
+            <div class="user-details__image" >
+                <img src="<%= currentRecipe.image %>" alt="image" height="200px">
+            </div>
+            <div class="user-details__info">
+                <h1> <%= currentRecipe.title %> <span class="author">By <%= currentRecipe.author %></span></h1>
+                <p> <%= currentRecipe.desc %></p>
+                <div class="tabs">
+                    <div class="tabs__controls">
+                        <span>ingredients</span>
+                        <span>steps</span>
+                    </div>
+                    <div class="tabs__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus illo nesciunt odit optio
+                            recusandae repellat, suscipit temporibus! Aut autem consequuntur delectus distinctio earum
+                            incidunt inventore laboriosam molestiae natus nesciunt odit perferendis quam quas, quis,
+                            ratione similique sit tempora unde velit vitae. Delectus deserunt dolor eaque nemo odio
+                            quasi sint tempore.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

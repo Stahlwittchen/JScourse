@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Kalam', sans-serif;
+  background: fade-out($base, .85);
+  color: darken($heading, 10%);
+}
+
+main {
+  width: 1024px;
+  margin: auto;
+}
+
+header {
+  background: fade-out($base, .75);
+}
+
+h1 {
+  font-family: 'Niconne', cursive;
+  color: $heading;
+  font-size: 50px;
+  padding: 30px 10px;
+}
+
+.bth {
+  padding: 5px 10px;
+  border: 0;
+  color: #fff;
+  background: fade-out(forestgreen, .2);
+  outline: none;
+  cursor: pointer;
+  font-family: 'Kalam', sans-serif;
+  &:hover {
+    background: forestgreen;
+  }
+}
+
+.btn-container {
+  text-align: right;
+}
+
+.author {
+  font: 16px 'Kalam', sans-serif;
+}

@@ -1,0 +1,60 @@
+.auth-form {
+  input{
+    border: 0;
+    outline: 0;
+    background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+
+    &::placeholder {
+      font-family: 'Kalam', sans-serif;
+    }
+    &.bth:hover {
+      background: linear-gradient(to left bottom, fade-out($base, .5), fade-out($base, .85));
+    }
+  }
+}
+
+
+
+
+.user-details__info {
+  h1 {
+    padding: 20px 1px;
+  }
+}
+
+.user-details {
+  display: flex;
+  padding: 20px 0;
+  &__info {
+
+  }
+  &__image {
+    img {
+      margin: 30px 40px 30px 0;
+    }
+
+  }
+}
+
+.tabs {
+  &__controls{
+    background: fade-out($base, .9);
+    display: inline-block;
+    border-radius: 10px;
+    span {
+      padding: 5px 15px;
+      display: inline-block;
+      border-radius: 10px;
+      cursor: pointer;
+      &:hover {
+        background: fade-out($base, .9);
+      }
+    }
+  }
+  &__content {
+    padding: 10px;
+  }
+}
