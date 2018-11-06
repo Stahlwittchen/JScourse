@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import classes from '../public/data/master-classes';
+import classes from '../data/master-classes';
 
 router
     .get('/', function (req, res) {
@@ -8,7 +8,8 @@ router
             .status(200)
             .render('booking',{
                 list: classes,
-                menuID: 'booking'
+                menuID: 'booking',
+                user: req.session.username
             })
         })
 

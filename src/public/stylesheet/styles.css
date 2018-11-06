@@ -106,3 +106,27 @@ h1 {
     font-family: 'Kalam', sans-serif; }
   .auth-form input.bth:hover {
     background: linear-gradient(to left bottom, rgba(34, 34, 34, 0.5), rgba(34, 34, 34, 0.15)); }
+
+.user-details__info h1 {
+  padding: 20px 1px; }
+
+.user-details {
+  display: flex;
+  padding: 20px 0; }
+  .user-details__image img {
+    margin: 30px 40px 30px 0; }
+
+.tabs__controls {
+  background: rgba(34, 34, 34, 0.1);
+  display: inline-block;
+  border-radius: 10px; }
+  .tabs__controls span {
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 10px;
+    cursor: pointer; }
+    .tabs__controls span:hover {
+      background: rgba(34, 34, 34, 0.1); }
+
+.tabs__content {
+  padding: 10px; }

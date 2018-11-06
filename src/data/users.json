@@ -1,0 +1,24 @@
+[
+  {
+    "username": "Stahlwittchen",
+    "password": "bazinga",
+    "admin": false,
+    "avatar": "/svg/baker.svg",
+    "phone": "789-67-89",
+    "email": "any@gmail.com",
+    "myRecipes": [],
+    "myClasses": [],
+    "myRequestsForClasses": []
+  },
+  {
+    "username": "Daphne",
+    "phone": "789-67-86",
+    "password": "",
+    "admin": false,
+    "avatar": "/svg/baker.svg",
+    "email": "any@gmail.com",
+    "myRecipes": [],
+    "myClasses": [],
+    "myRequestsForClasses": []
+  }
+]

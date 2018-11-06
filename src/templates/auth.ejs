@@ -1,11 +1,11 @@
-${pageHead}
+<% include page-head.ejs %>
+<!--<script src="/scripts/order-form.js"></script>-->
 <body>
-    ${nav}
     <main>
         <h1>Auth form</h1>
-        <form action="/auth" method="POST" class="auth-form">
+        <form action="/auth" method="post" class="auth-form">
             <p>
-                <input type="text" placeholder="Login" name="login">
+                <input type="text" placeholder="Username" name="username">
             </p>
             <p>
                 <input type="password" placeholder="Password" name="password">

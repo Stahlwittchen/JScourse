@@ -13,6 +13,11 @@
                     Booking
                 </a>
             </li>
+            <li>
+                <a href="<%= user?'/account':'/auth' %>" class="main-nav__link" >
+                    <%= user?user:`sign up` %>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>

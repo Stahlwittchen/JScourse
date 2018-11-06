@@ -1,6 +1,7 @@
 [
   {
     "title": "Cookies class",
+    "author": "Stahlwittchen",
     "desc": "some information",
     "countOfSeats": 5,
     "upcomingClasses": [
@@ -23,6 +24,7 @@
   },
   {
     "title": "Cheesecake class",
+    "author": "Stahlwittchen",
     "desc": "another information",
     "countOfSeats": 4,
     "upcomingClasses": [
@@ -40,6 +42,7 @@
   },
   {
     "title": "Apple pie class",
+    "author": "Stahlwittchen",
     "desc": "fuck off, lazy to type",
     "countOfSeats": 6,
     "upcomingClasses": [
