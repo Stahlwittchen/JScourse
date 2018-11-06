@@ -35,6 +35,9 @@ h1 {
 .btn-container {
   text-align: right; }
 
+.author {
+  font: 20px 'Kalam', sans-serif; }
+
 .main-nav {
   display: flex;
   padding: 10px;

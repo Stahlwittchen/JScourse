@@ -1,7 +1,7 @@
 [
   {
     "title": "Cookies class",
-    "author": "Stahlwittchen",
+    "author": "Daphne",
     "desc": "some information",
     "countOfSeats": 5,
     "upcomingClasses": [
@@ -24,7 +24,7 @@
   },
   {
     "title": "Cheesecake class",
-    "author": "Stahlwittchen",
+    "author": "Daphne",
     "desc": "another information",
     "countOfSeats": 4,
     "upcomingClasses": [
