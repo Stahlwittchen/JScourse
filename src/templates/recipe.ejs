@@ -10,17 +10,18 @@
             <div class="user-details__info">
                 <h1> <%= currentRecipe.title %> <span class="author">By <%= currentRecipe.author %></span></h1>
                 <p> <%= currentRecipe.desc %></p>
-                <div class="tabs">
-                    <div class="tabs__controls">
-                        <span>ingredients</span>
-                        <span>steps</span>
+                <div>
+                    <div class="tabs">
+                        <span class="tabs__item">ingredients</span>
+                        <span class="tabs__item">steps</span>
                     </div>
                     <div class="tabs__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus illo nesciunt odit optio
-                            recusandae repellat, suscipit temporibus! Aut autem consequuntur delectus distinctio earum
-                            incidunt inventore laboriosam molestiae natus nesciunt odit perferendis quam quas, quis,
-                            ratione similique sit tempora unde velit vitae. Delectus deserunt dolor eaque nemo odio
-                            quasi sint tempore.</p>
+                        <div class="tabs__content__item">
+                            There are no ingredients
+                        </div>
+                        <div class="tabs__content__item">
+                            There are no steps
+                        </div>
                     </div>
                 </div>
 

@@ -11,21 +11,10 @@
   &_entity {
     list-style-type: none;
     text-align: center;
-    li {
-      padding: 5px 10px;
-      background: linear-gradient(to right top, fade-out(#828282, .9), fade-in(#828282, .9));
-      color: #ffffff;
-      margin-bottom: 5px;
-      cursor: pointer;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      &:hover, &.active {
-        box-shadow: inset 0 0 12px 10px #7d7c7c;
-      }
-    }
+
   }
 }
+
 .entity-details {
   list-style-type: none;
   padding-bottom: 20px;
