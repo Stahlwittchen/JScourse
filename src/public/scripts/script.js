@@ -18,13 +18,18 @@ function tabs() {
         }
     }
 }
-function edit() {
-    // const edit = document.getElementsByClassName('editable')[0];
-    // edit.onclick = function(e) {
-    //     console.log('success')
-    // }
+function showHiddenText() {
+    const hiddenText = document.getElementsByClassName('hidden-text');
+    for (let i = 0;  i < hiddenText.length; i++){
+        hiddenText[i].onclick = function () {
+            hiddenText[i].classList.toggle('active');
+        }
+    }
 }
+if (parent.length) {
+    setTimeout(tabs, 0);
+};
 
 
-setTimeout(tabs, 0);
-setTimeout(edit, 0);
+setTimeout(showHiddenText, 0);
+

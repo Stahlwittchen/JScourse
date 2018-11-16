@@ -100,14 +100,38 @@ h1 {
       z-index: -1;
       transition: all 1s; }
     .tile-wrapper__tile:hover {
-      box-shadow: inset 0 0 150px 0 #7d7c7c;
-      opacity: 1; }
+      box-shadow: inset 0 0 150px 30px #7d7c7c; }
       .tile-wrapper__tile:hover .tile-wrapper__tile--bg {
         opacity: .7; }
     .tile-wrapper__tile h2, .tile-wrapper__tile p {
       text-align: center; }
     .tile-wrapper__tile p {
       font-weight: bold; }
+
+.hidden-text {
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .hidden-text .hiden-content {
+    display: none; }
+    .hidden-text .hiden-content__control {
+      display: block;
+      border-left: 15px solid rgba(255, 255, 255, 0.8);
+      border-right: 15px solid  transparent;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      width: auto; }
+  .hidden-text.active {
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px; }
+    .hidden-text.active .hiden-content {
+      display: block; }
+      .hidden-text.active .hiden-content__control {
+        width: 100%;
+        border-color: transparent; }
 
 .main-nav {
   display: flex;

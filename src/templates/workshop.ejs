@@ -7,27 +7,24 @@
             <% workshops.forEach( item => { %>
                 <div class="tile-wrapper__tile">
                     <div class="tile-wrapper__tile--bg" style="background-image: url(<%= item.image %>)">
-                        <div class="desc">
-                            <span>show more</span>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, cum cupiditate ex excepturi, exercitationem expedita iusto mollitia nulla odio quae quam quas quia quos ratione rerum sunt tenetur ut vero.
-                            </p>
-                        </div>
                     </div>
                     <div>
                         <h2><%= item.title %></h2>
                         <p><%= item.date %></p>
                         <p><%= item.cost %> $ </p>
-                        <!--<p>-->
-                        <!--item.author-->
-                        <!-- item.desc -->
-                        <!--по клику-->
-                        <!--<p>available item.booked.length</p>-->
-                        <!--</p>-->
                     </div>
+                    <div class="hidden-text">
+                        <span class="hiden-content__control">
+                        </span>
+                        <div class="hiden-content">
+                            <p><%= item.author %></p>
+                            <p><%= item.desc %></p>
+                            <p>available <%= item.booked.length %></p>
 
-                    <div class="btn-container">
-                        <input value="Join us" type="button" id="sendOrder" class="bth">
+                            <div class="btn-container">
+                                <input value="Join us" type="button" id="sendOrder" class="bth">
+                            </div>
+                        </div>
                     </div>
                 </div>
             <% }); %>
