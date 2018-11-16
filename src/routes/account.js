@@ -2,11 +2,11 @@ import express from 'express';
 const router = express.Router();
 import userDetails from '../data/users';
 import recipes from '../data/recipes';
-import classes from '../data/master-classes';
+import workshops from '../data/workshops';
 
 router
     .get('/', function (req, res) {
-        let userDetail, list = [], myClasses = [];
+        let userDetail, myRecipes = [], myWorkshops = [];
 
         for(let i=0; i<userDetails.length; i++){
             if(userDetails[i].username==req.session.username){
@@ -21,8 +21,13 @@ router
                 }
             }
         }
-        isMine(recipes, list)
-        isMine(classes, myClasses);
+        isMine(recipes, myRecipes);
+        isMine(workshops, myWorkshops);
+
+        if(!req.session.username){
+            res.status(404)
+                .redirect('/')
+        }
 
         res
             .status(200)
@@ -30,20 +35,31 @@ router
                 menuID: 'account',
                 user: req.session.username,
                 userDetail: userDetail,
-                list: list,
-                myClasses: myClasses
+                myRecipes: myRecipes,
+                myWorkshops: myWorkshops
             })
     })
     .post('/', function (req,res) {
-        let orderData = {};
+        let isRecipe = true,
+            isWorkshop = false;
         if (req.body) {
-            console.log(req.body);
-            orderData = req.body;
-            orderData.author = req.session.username;
-            orderData.image = "/svg/cake.svg";
+            if (isRecipe){
+                let newRecipe = {};
+                newRecipe = req.body;
+                newRecipe.author = req.session.username;
+                newRecipe.image = "/svg/cake.svg";
+                recipes.push(newRecipe);
+                res.redirect('/account')
+            }
+            if (isWorkshop){
+                let newWorkshop = {};
+                newWorkshop = req.body;
+                newWorkshop.author = req.session.username;
+                newWorkshop.countOfSeats = 5;
+                workshops.push(newWorkshop);
+                res.redirect('/account')
+            }
         }
-        console.log(orderData);
-        recipes.push(orderData);
     })
 
 module.exports = router;

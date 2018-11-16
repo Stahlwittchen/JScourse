@@ -13,14 +13,14 @@
                 <p> <span>Phone: </span> <%= userDetail.phone %></p>
                 <div>
                     <div class="tabs">
-                        <span class="tabs__item">myRecipes</span>
-                        <span class="tabs__item">myClasses</span>
-                        <span class="tabs__item">myRequests</span>
+                        <span class="tabs__item">my Recipes</span>
+                        <span class="tabs__item">my Workshops</span>
+                        <span class="tabs__item">my Requests</span>
                     </div>
                     <div class="tabs__content">
                         <div class="tabs__content__item">
                             <ul>
-                                <% list.forEach(function(item) { %>
+                                <% myRecipes.forEach(function(item) { %>
                                 <li><a class="main-list__link " href="recipes/<%= item.title %>"><%= item.title %></a></li>
                                 <% }); %>
                             </ul>
@@ -30,7 +30,7 @@
                             </p>
                             <p>
                             <label>description:
-                            <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            <textarea name="desc" id="" cols="30" rows="10"></textarea>
                             </label>
                             </p>
                             <p>
@@ -40,10 +40,23 @@
                         </div>
                         <div class="tabs__content__item">
                             <ul>
-                                <% myClasses.forEach(function(item) { %>
+                                <% myWorkshops.forEach(function(item) { %>
                                 <li><a class="main-list__link "><%= item.title %></a></li>
                                 <% }); %>
                             </ul>
+                            <form method="post" action="/account">
+                                <p>
+                                    <label>title: <input type="text" name="title"></label>
+                                </p>
+                                <p>
+                                    <label>description:
+                                        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input value="Add class" type="submit" class="bth">
+                                </p>
+                            </form>
                         </div>
                         <div class="tabs__content__item">
                             You did do any request
