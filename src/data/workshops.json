@@ -3,52 +3,39 @@
     "title": "Cookies class",
     "author": "Daphne",
     "desc": "some information",
-    "countOfSeats": 5,
-    "upcomingClasses": [
+    "cost": 15,
+    "date": "01.11.2018",
+    "image": "/svg/baking.svg",
+    "booked": [
       {
-        "date": "01.11.2018",
-        "booked": [
-          {
-            "name": "Mary",
-            "phone": "123-12-12",
-            "payment": true
-          },
-          {
-            "name": "Jane",
-            "phone": "567-23-12",
-            "payment": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Cheesecake class",
-    "author": "Daphne",
-    "desc": "another information",
-    "countOfSeats": 4,
-    "upcomingClasses": [
+        "name": "Mary",
+        "phone": "123-12-12",
+        "payment": true
+      },
       {
-        "date": "04.11.2018",
-        "booked": [
-          {
-            "name": "Lucy",
-            "phone": "123-12-12",
-            "payment": true
-          }
-        ]
+        "name": "Jane",
+        "phone": "567-23-12",
+        "payment": false
       }
     ]
   },
   {
     "title": "Apple pie class",
-    "author": "Stahlwittchen",
+    "author": "Daphne",
     "desc": "fuck off, lazy to type",
-    "countOfSeats": 6,
-    "upcomingClasses": [
+    "cost": 15,
+    "date": "01.11.2018",
+    "image": "/svg/recipe-book.svg",
+    "booked": [
       {
-        "date": "06.11.2018",
-        "booked": [  ]
+        "name": "Mary",
+        "phone": "123-12-12",
+        "payment": true
+      },
+      {
+        "name": "Jane",
+        "phone": "567-23-12",
+        "payment": false
       }
     ]
   }

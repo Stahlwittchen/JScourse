@@ -22,18 +22,21 @@ h1 {
   padding: 30px 10px; }
 
 .bth {
-  padding: 5px 10px;
+  padding: 7px 14px;
   border: 0;
   color: #fff;
   background: rgba(34, 139, 34, 0.8);
   outline: none;
   cursor: pointer;
-  font-family: 'Kalam', sans-serif; }
+  font-family: 'Kalam', sans-serif;
+  font-size: 16px;
+  line-height: 1; }
   .bth:hover {
     background: forestgreen; }
 
 .btn-container {
-  text-align: right; }
+  text-align: center;
+  padding-top: 10px; }
 
 .author {
   font: 16px 'Kalam', sans-serif; }
@@ -58,7 +61,7 @@ h1 {
       display: flex; }
       .tab-wrapper .tabs__content {
         flex: 1;
-        padding: 10px 20px; }
+        padding: 0 20px; }
   .tabs__item {
     padding: 4px 16px;
     cursor: pointer;
@@ -71,6 +74,40 @@ h1 {
       display: none; }
       .tabs__content__item.active {
         display: block; }
+
+.tile-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 20px; }
+  .tile-wrapper__tile {
+    padding: 40px 30px;
+    cursor: pointer;
+    box-shadow: inset 0 0 90px 30px #7d7c7c;
+    transition: all 1.5s;
+    border-radius: 20px;
+    position: relative; }
+    .tile-wrapper__tile--bg {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: .4;
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      right: 10px;
+      left: 10px;
+      z-index: -1;
+      transition: all 1s; }
+    .tile-wrapper__tile:hover {
+      box-shadow: inset 0 0 150px 0 #7d7c7c;
+      opacity: 1; }
+      .tile-wrapper__tile:hover .tile-wrapper__tile--bg {
+        opacity: .7; }
+    .tile-wrapper__tile h2, .tile-wrapper__tile p {
+      text-align: center; }
+    .tile-wrapper__tile p {
+      font-weight: bold; }
 
 .main-nav {
   display: flex;

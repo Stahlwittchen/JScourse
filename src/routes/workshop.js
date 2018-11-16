@@ -1,13 +1,13 @@
 import express from 'express';
 const router = express.Router();
-import classes from '../data/workshops';
+import workshops from '../data/workshops';
 
 router
     .get('/', function (req, res) {
         res
             .status(200)
             .render('workshop',{
-                list: classes,
+                workshops: workshops,
                 menuID: 'workshop',
                 user: req.session.username
             })
