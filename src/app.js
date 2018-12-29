@@ -15,7 +15,7 @@ app.use(session({
 
 import auth from './routes/auth';
 import home from './routes/home'
-import booking from './routes/booking'
+import workshop from './routes/workshop'
 import account from './routes/account'
 import recipe from './routes/recipe';
 
@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', home);
 app.use('/auth', auth);
 app.use('/recipes', recipe);
-app.use('/booking', booking);
+app.use('/workshop', workshop);
 app.use('/account', account);
 
 module.exports = app;

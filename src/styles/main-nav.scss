@@ -8,7 +8,7 @@
     margin-right: 5px;
     &:last-child {
       margin-right: unset;
-      //margin-left: auto;
+      margin-left: auto;
     }
   }
   &__link {
@@ -19,17 +19,6 @@
       background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
     }
   }
-  //&__icon{
-  //  width: 20px;
-  //  height: 20px;
-  //  display: inline-block;
-  //}
-  //.cake {
-  //  background: url("../svg/cake.svg");
-  //}
-  //.baker {
-  //  background: url("../svg/baker.svg");
-  //}
 }
 .main-list {
   @include list;

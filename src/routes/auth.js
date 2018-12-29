@@ -28,7 +28,7 @@ router
             password = req.body.password;
         authenticate (req,username, password);
         if (req.session && req.session.authenticated){
-            res.redirect('home')
+            res.redirect('account')
         } else {
             res.redirect('/')
         }

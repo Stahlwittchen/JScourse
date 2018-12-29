@@ -11,18 +11,56 @@
                 <h1><%= user %></h1>
                 <p> <span>Email: </span> <%= userDetail.email %></p>
                 <p> <span>Phone: </span> <%= userDetail.phone %></p>
-                <div class="tabs">
-                    <div class="tabs__controls">
-                        <span>myRecipes</span>
-                        <span>myClasses</span>
-                        <span>myRequestsForClasses</span>
+                <div>
+                    <div class="tabs">
+                        <span class="tabs__item">my Recipes</span>
+                        <span class="tabs__item">my Workshops</span>
+                        <span class="tabs__item">my Requests</span>
                     </div>
                     <div class="tabs__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus illo nesciunt odit optio
-                            recusandae repellat, suscipit temporibus! Aut autem consequuntur delectus distinctio earum
-                            incidunt inventore laboriosam molestiae natus nesciunt odit perferendis quam quas, quis,
-                            ratione similique sit tempora unde velit vitae. Delectus deserunt dolor eaque nemo odio
-                            quasi sint tempore.</p>
+                        <div class="tabs__content__item">
+                            <ul>
+                                <% myRecipes.forEach(function(item) { %>
+                                <li><a class="main-list__link " href="recipes/<%= item.title %>"><%= item.title %></a></li>
+                                <% }); %>
+                            </ul>
+                            <form method="post" action="/account">
+                            <p>
+                            <label>title: <input type="text" name="title"></label>
+                            </p>
+                            <p>
+                            <label>description:
+                            <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                            </label>
+                            </p>
+                            <p>
+                            <input value="Add recipe" type="submit" class="bth">
+                            </p>
+                            </form>
+                        </div>
+                        <div class="tabs__content__item">
+                            <ul>
+                                <% myWorkshops.forEach(function(item) { %>
+                                <li><a class="main-list__link "><%= item.title %></a></li>
+                                <% }); %>
+                            </ul>
+                            <form method="post" action="/account">
+                                <p>
+                                    <label>title: <input type="text" name="title"></label>
+                                </p>
+                                <p>
+                                    <label>description:
+                                        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input value="Add class" type="submit" class="bth">
+                                </p>
+                            </form>
+                        </div>
+                        <div class="tabs__content__item">
+                            You did do any request
+                        </div>
                     </div>
                 </div>
 

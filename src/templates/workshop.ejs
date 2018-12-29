@@ -1,0 +1,34 @@
+<% include page-head.ejs %>
+<body>
+    <% include nav %>
+    <main>
+        <h1>This is the list of our best workshops</h1>
+        <div class="tile-wrapper">
+            <% workshops.forEach( item => { %>
+                <div class="tile-wrapper__tile">
+                    <div class="tile-wrapper__tile--bg" style="background-image: url(<%= item.image %>)">
+                    </div>
+                    <div>
+                        <h2><%= item.title %></h2>
+                        <p><%= item.date %></p>
+                        <p><%= item.cost %> $ </p>
+                    </div>
+                    <div class="hidden-text">
+                        <span class="hiden-content__control">
+                        </span>
+                        <div class="hiden-content">
+                            <p><%= item.author %></p>
+                            <p><%= item.desc %></p>
+                            <p>available <%= item.booked.length %></p>
+
+                            <div class="btn-container">
+                                <input value="Join us" type="button" id="sendOrder" class="bth">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+</body>
+</html>

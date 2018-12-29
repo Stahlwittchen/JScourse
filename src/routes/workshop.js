@@ -1,14 +1,14 @@
 import express from 'express';
 const router = express.Router();
-import classes from '../data/master-classes';
+import workshops from '../data/workshops';
 
 router
     .get('/', function (req, res) {
         res
             .status(200)
-            .render('booking',{
-                list: classes,
-                menuID: 'booking',
+            .render('workshop',{
+                workshops: workshops,
+                menuID: 'workshop',
                 user: req.session.username
             })
         })
