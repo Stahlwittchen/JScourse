@@ -1,5 +1,9 @@
 function tabs() {
     const parent = document.getElementsByClassName('tabs')[0];
+    if (!parent) {
+        return false
+    }
+
     let activeTab = document.getElementsByClassName('tabs__item')[0],
         activeContent = document.getElementsByClassName('tabs__content__item')[0];
 
@@ -26,10 +30,8 @@ function showHiddenText() {
         }
     }
 }
-if (parent.length) {
-    setTimeout(tabs, 0);
-};
 
+setTimeout(tabs, 0);
 
 setTimeout(showHiddenText, 0);
 

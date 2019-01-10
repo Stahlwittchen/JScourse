@@ -1,5 +1,6 @@
 import express from 'express';
 const app = express();
+import mongoose from 'mongoose';
 
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -18,6 +19,10 @@ import home from './routes/home'
 import workshop from './routes/workshop'
 import account from './routes/account'
 import recipe from './routes/recipe';
+
+const url = 'mongodb://localhost:27017/cakehunter';
+mongoose.connect(url, { useNewUrlParser: true });
+
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');

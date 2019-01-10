@@ -1,65 +1,37 @@
 import express from 'express';
 const router = express.Router();
-import userDetails from '../data/users';
-import recipes from '../data/recipes';
-import workshops from '../data/workshops';
+import User from '../models/Users';
+import Recipes from '../models/Recipe';
+// import Workshops from '../models/Workshop';
 
 router
-    .get('/', function (req, res) {
-        let userDetail, myRecipes = [], myWorkshops = [];
-
-        for(let i=0; i<userDetails.length; i++){
-            if(userDetails[i].username==req.session.username){
-                userDetail = userDetails[i];
-                break;
-            }
-        }
-        function isMine(arr, mylist) {
-            for(let i=0; i<arr.length; i++){
-                if(arr[i].author==req.session.username){
-                    mylist.push(arr[i])
-                }
-            }
-        }
-        isMine(recipes, myRecipes);
-        isMine(workshops, myWorkshops);
+    .get('/', function (req, res, next) {
 
         if(!req.session.username){
             res.status(404)
                 .redirect('/')
         }
+        User.findOne({}, function (err, user){
+            if (err) return next(err);
 
-        res
-            .status(200)
-            .render('account',{
+            res.render('account', {
                 menuID: 'account',
-                user: req.session.username,
-                userDetail: userDetail,
-                myRecipes: myRecipes,
-                myWorkshops: myWorkshops
+                user: user,
+                login: req.session.username
             })
+         })
     })
-    .post('/', function (req,res) {
-        let isRecipe = true,
-            isWorkshop = false;
-        if (req.body) {
-            if (isRecipe){
-                let newRecipe = {};
-                newRecipe = req.body;
-                newRecipe.author = req.session.username;
-                newRecipe.image = "/svg/cake.svg";
-                recipes.push(newRecipe);
-                res.redirect('/account')
+    .post('/', function (req, res, next) {
+        if (!req.body) return res.sendStatus(400);
+
+        const newUser = new User(req.body);
+        newUser.save(function (err) {
+            if (err) {
+                return next(err);
             }
-            if (isWorkshop){
-                let newWorkshop = {};
-                newWorkshop = req.body;
-                newWorkshop.author = req.session.username;
-                newWorkshop.countOfSeats = 5;
-                workshops.push(newWorkshop);
-                res.redirect('/account')
-            }
-        }
+            console.log('newUser was successfully saved')
+            res.json(newUser);
+        });
     })
 
 module.exports = router;
