@@ -1,13 +1,12 @@
 import express from 'express';
 const router = express.Router();
 import User from '../models/Users';
-import Recipes from '../models/Recipe';
-// import Workshops from '../models/Workshop';
+import Recipe from '../models/Recipe';
+import Workshops from '../models/Workshop';
 
 router
     .get('/', function (req, res, next) {
-
-        if(!req.session.username){
+        if(!req.session.user){
             res.status(404)
                 .redirect('/')
         }
@@ -17,21 +16,46 @@ router
             res.render('account', {
                 menuID: 'account',
                 user: user,
-                login: req.session.username
+                login: req.session.user
             })
          })
     })
     .post('/', function (req, res, next) {
         if (!req.body) return res.sendStatus(400);
 
-        const newUser = new User(req.body);
-        newUser.save(function (err) {
+        let newRecipe = new Recipe(req.body);
+        newRecipe.author = req.session.user._id;
+        newRecipe.image = "/svg/cake.svg";
+        newRecipe.save(function (err) {
             if (err) {
                 return next(err);
             }
-            console.log('newUser was successfully saved')
-            res.json(newUser);
+            User.findOneAndUpdate({},{$push: { _recipes: newRecipe }}, function (err, user){
+                console.log('Recipe has been saved to User');
+            });
+            console.log('newRecipe was successfully saved');
         });
+        console.log(newRecipe);
+        res.redirect('/account')
+    })
+    .post('/workshop', function (req, res, next) {
+        if (!req.body) return res.sendStatus(400);
+
+        let newWorkshop = new Workshops(req.body);
+        newWorkshop.author = req.session.user._id;
+        newWorkshop.image = "/svg/baking.svg";
+        newWorkshop.cost = 15;
+        newWorkshop.save(function (err) {
+            if (err) {
+                return next(err);
+            }
+            User.findOneAndUpdate({},{$push: { _workshops: newWorkshop }}, function (err, user){
+                console.log('Workshop has been saved to User');
+            });
+            console.log('newWorkshop was successfully saved');
+        });
+        console.log(newWorkshop);
+        res.redirect('/account')
     })
 
 module.exports = router;

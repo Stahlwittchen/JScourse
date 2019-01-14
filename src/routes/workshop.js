@@ -12,7 +12,7 @@ router
                 .render('workshop', {
                     workshops: workshops,
                     menuID: 'workshop',
-                    login: req.session.username
+                    login: req.session.user
                 })
         })
     })

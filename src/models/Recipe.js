@@ -20,18 +20,5 @@ recipeSchema.pre('save', function(next) {
 
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
-// Recipe.create({
-//     title: "Cheesecake",
-//     desc: "delicious classic cheesecake",
-//     author: "Stahlwittchen",
-//     image: "/svg/cake.svg",
-//     ingredients: [],
-//     steps: []
-// }, function(err, doc){
-//     mongoose.disconnect();
-//
-//     if(err) return console.log(err);
-//
-//     console.log("Сохранен объект Recipe", doc);
-// });
+
 module.exports = Recipe;

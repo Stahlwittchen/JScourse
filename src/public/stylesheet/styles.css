@@ -195,3 +195,7 @@ h1 {
     font-family: 'Kalam', sans-serif; }
   .auth-form input.bth:hover {
     background: linear-gradient(to left bottom, rgba(34, 34, 34, 0.5), rgba(34, 34, 34, 0.15)); }
+
+.sign-form {
+  display: flex;
+  justify-content: space-around; }
