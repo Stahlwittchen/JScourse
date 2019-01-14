@@ -11,7 +11,7 @@ router
             res.render('recipe', {
                 currentRecipe: recipe,
                 menuID: 'recipe',
-                login: req.session.username
+                login: req.session.user
             })
         });
     })

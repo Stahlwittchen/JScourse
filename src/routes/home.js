@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
             .render('home', {
                 recipes: recipes,
                 menuID: 'home',
-                login: req.session.username
+                login: req.session.user
             })
     })
 

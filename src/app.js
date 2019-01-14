@@ -29,7 +29,7 @@ app.set('views', __dirname + '/templates');
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', home);
-app.use('/auth', auth);
+app.use('/', auth);
 app.use('/recipes', recipe);
 app.use('/workshop', workshop);
 app.use('/account', account);
