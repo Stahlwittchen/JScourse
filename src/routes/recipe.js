@@ -5,7 +5,7 @@ import Recipes from '../models/Recipe';
 
 router
     .get('/:id', function (req, res, next) {
-        Recipes.findById(req.params.id, function (err, recipe) {
+        Recipes.findById(req.params.id).populate('author').exec(function (err, recipe){
             if (err) return next(err);
 
             res.render('recipe', {
@@ -13,7 +13,7 @@ router
                 menuID: 'recipe',
                 login: req.session.user
             })
-        });
+        })
     })
 
 module.exports = router;

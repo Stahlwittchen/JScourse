@@ -22,7 +22,7 @@
                             <ul>
                                 <% if (user._recipes) { %>
                                     <% user._recipes.forEach(function(item) { %>
-                                    <li><a class="main-list__link " href="recipes/<%= item._id %>"><%= item %></a></li>
+                                    <li><a class="main-list__link " href="recipes/<%= item._id %>"><%= item.title %></a></li>
                                     <% }); %>
                                 <% } %>
                                 <% if (user._recipes==0) { %>

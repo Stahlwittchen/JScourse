@@ -10,7 +10,7 @@ router
             res.status(404)
                 .redirect('/')
         }
-        User.findOne({}, function (err, user){
+        User.findOne({_id: req.session.user._id}).populate('_recipes').exec(function (err, user) {
             if (err) return next(err);
 
             res.render('account', {
@@ -18,7 +18,7 @@ router
                 user: user,
                 login: req.session.user
             })
-         })
+        })
     })
     .post('/', function (req, res, next) {
         if (!req.body) return res.sendStatus(400);
@@ -30,7 +30,7 @@ router
             if (err) {
                 return next(err);
             }
-            User.findOneAndUpdate({},{$push: { _recipes: newRecipe }}, function (err, user){
+            User.findOneAndUpdate({_id: req.session.user._id},{$push: { _recipes: newRecipe }}, function (err, user){
                 console.log('Recipe has been saved to User');
             });
             console.log('newRecipe was successfully saved');
