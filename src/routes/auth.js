@@ -23,15 +23,16 @@ router
                 console.log(err);
                 return res.status(500).send();
             }
-            if(!user){
-                console.log('юзер не найден');
-                res.redirect('/')
+            if(user){
+                req.session.authenticaticated = true;
+                req.session.user = user;
+                console.log('auth has been successful')
+                console.log(req.session);
+                res.redirect('/account');
             }
-            req.session.authenticaticated = true;
-            req.session.user = user;
-            console.log('auth has been successful')
-            console.log(req.session);
-            res.redirect('/account')
+            else {
+                console.log('юзер не найден');
+            }
         })
 
     })

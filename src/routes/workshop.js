@@ -5,10 +5,9 @@ import Workshops from '../models/Workshop';
 
 router
     .get('/', function (req, res, next) {
-        Workshops.find({}, function (err, workshops) {
+        Workshops.find({}).populate('author').exec(function (err, workshops){
             if (err) return next(err);
-            res
-                .status(200)
+            res.status(200)
                 .render('workshop', {
                     workshops: workshops,
                     menuID: 'workshop',

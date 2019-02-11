@@ -10,6 +10,7 @@ const workshopSchema = mongoose.Schema({
     image: String,
     cost: Number,
     date: Date,
+    available: Number,
     booked: Array
 });
 

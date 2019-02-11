@@ -31,7 +31,18 @@ function showHiddenText() {
     }
 }
 
+function orderWS () {
+    const e = document.getElementById('orderWS');
+
+    if(e.style.display == 'block')
+        e.style.display = 'none';
+    else
+        e.style.display = 'block';
+}
+
 setTimeout(tabs, 0);
+
+//setTimeout(orderWS, 0);
 
 setTimeout(showHiddenText, 0);
 

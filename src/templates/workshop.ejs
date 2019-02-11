@@ -10,25 +10,49 @@
                     </div>
                     <div>
                         <h2><%= item.title %></h2>
-                        <p><%= item.date.toDateString() %></p>
-                        <p><%= item.cost %> $ </p>
+                        <p><%= item.date.toDateString() %> | 19.00 </p>
+                        <p><%= item.cost %> rub </p>
                     </div>
                     <div class="hidden-text">
                         <span class="hiden-content__control">
                         </span>
                         <div class="hiden-content">
-                            <p><%= item.author %></p>
+                            <p>By <%= item.author.username %></p>
                             <p><%= item.desc %></p>
-                            <p>available <%= item.booked.length %></p>
+                            <p>available <%= item.available - item.booked.length %> </p>
 
                             <div class="btn-container">
-                                <input value="Join us" type="button" id="sendOrder" class="bth">
+                                <input  onclick="orderWS()" class="bth" value="Join The Class">
                             </div>
                         </div>
                     </div>
                 </div>
             <% }); %>
         </div>
+
+            <div class="popup" id="orderWS" >
+                <div class="popup__header">Order Form</div>
+                <div class="popup__body">
+                    <p>
+                        <label>
+                            Name
+                            <input type="text">
+                        </label>
+                        <label>
+                            Phone
+                            <input type="text">
+                        </label>
+                        <label>
+                            Number of tickets
+                            <input type="text">
+                        </label>
+                    </p>
+                </div>
+                <div class="popup__footer">
+                    <input  onclick="orderWS()" class="bth" value="Close">
+                </div>
+            </div>
+
     </main>
 </body>
 </html>
