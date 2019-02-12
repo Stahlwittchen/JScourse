@@ -31,7 +31,19 @@ function showHiddenText() {
     }
 }
 
+function orderWS () {
+    const thisTile = event.target.closest('.tile-wrapper__tile');
+    let tileBtn = thisTile.getElementsByClassName('popup')[0];
+
+    if(tileBtn.style.display == 'block')
+        tileBtn.style.display = 'none';
+    else
+        tileBtn.style.display = 'block';
+}
+
 setTimeout(tabs, 0);
+
+//setTimeout(orderWS, 0);
 
 setTimeout(showHiddenText, 0);
 

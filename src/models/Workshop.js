@@ -10,7 +10,11 @@ const workshopSchema = mongoose.Schema({
     image: String,
     cost: Number,
     date: Date,
-    booked: Array
+    available: Number,
+    _booked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Request'
+    }]
 });
 
 const Workshop = mongoose.model('Workshop', workshopSchema);

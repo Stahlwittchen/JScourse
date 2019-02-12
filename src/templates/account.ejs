@@ -47,7 +47,7 @@
                             <ul>
                                 <% if (user._workshops) { %>
                                 <% user._workshops.forEach(function(item) { %>
-                                <li><a class="main-list__link " href="recipes/<%= item._id %>"><%= item %></a></li>
+                                <li><a class="main-list__link " href="#"><%= item.title %></a></li>
                                 <% }); %>
                                 <% } %>
                                 <% if (user._workshops==0) { %>

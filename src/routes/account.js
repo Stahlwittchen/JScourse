@@ -10,7 +10,7 @@ router
             res.status(404)
                 .redirect('/')
         }
-        User.findOne({_id: req.session.user._id}).populate('_recipes').exec(function (err, user) {
+        User.findOne({_id: req.session.user._id}).populate('_recipes _workshops').exec(function (err, user) {
             if (err) return next(err);
 
             res.render('account', {
@@ -44,7 +44,8 @@ router
         let newWorkshop = new Workshops(req.body);
         newWorkshop.author = req.session.user._id;
         newWorkshop.image = "/svg/baking.svg";
-        newWorkshop.cost = 15;
+        newWorkshop.cost = 1500;
+        newWorkshop.available = 6;
         newWorkshop.save(function (err) {
             if (err) {
                 return next(err);
