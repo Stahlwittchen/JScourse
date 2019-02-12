@@ -32,12 +32,13 @@ function showHiddenText() {
 }
 
 function orderWS () {
-    const e = document.getElementById('orderWS');
+    const thisTile = event.target.closest('.tile-wrapper__tile');
+    let tileBtn = thisTile.getElementsByClassName('popup')[0];
 
-    if(e.style.display == 'block')
-        e.style.display = 'none';
+    if(tileBtn.style.display == 'block')
+        tileBtn.style.display = 'none';
     else
-        e.style.display = 'block';
+        tileBtn.style.display = 'block';
 }
 
 setTimeout(tabs, 0);

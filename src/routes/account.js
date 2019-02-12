@@ -45,6 +45,7 @@ router
         newWorkshop.author = req.session.user._id;
         newWorkshop.image = "/svg/baking.svg";
         newWorkshop.cost = 1500;
+        newWorkshop.available = 6;
         newWorkshop.save(function (err) {
             if (err) {
                 return next(err);

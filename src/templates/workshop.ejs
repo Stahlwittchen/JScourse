@@ -19,40 +19,42 @@
                         <div class="hiden-content">
                             <p>By <%= item.author.username %></p>
                             <p><%= item.desc %></p>
-                            <p>available <%= item.available - item.booked.length %> </p>
+                            <p>available <%= item.available - item._booked.length %> </p>
 
                             <div class="btn-container">
                                 <input  onclick="orderWS()" class="bth" value="Join The Class">
                             </div>
                         </div>
                     </div>
+                    <div class="popup">
+                        <%= item.title %>
+                        <form  method="post" action="/workshop">
+                            <div class="popup__header">Order Form</div>
+                            <div class="popup__body">
+                                <p>
+                                    <input type="text" name="parentID"  id="parentID" style="display: none" value="<%= item._id %>">
+                                    <label>
+                                        Name
+                                        <input type="text" name="name">
+                                    </label>
+                                    <label>
+                                        Phone
+                                        <input type="text" name="phone">
+                                    </label>
+                                    <label>
+                                        Number of tickets
+                                        <input type="number" name="count">
+                                    </label>
+                                </p>
+                            </div>
+                            <div class="popup__footer">
+                                <input class="bth" value="Submit" type="submit">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             <% }); %>
         </div>
-
-            <div class="popup" id="orderWS" >
-                <div class="popup__header">Order Form</div>
-                <div class="popup__body">
-                    <p>
-                        <label>
-                            Name
-                            <input type="text">
-                        </label>
-                        <label>
-                            Phone
-                            <input type="text">
-                        </label>
-                        <label>
-                            Number of tickets
-                            <input type="text">
-                        </label>
-                    </p>
-                </div>
-                <div class="popup__footer">
-                    <input  onclick="orderWS()" class="bth" value="Close">
-                </div>
-            </div>
-
     </main>
 </body>
 </html>
