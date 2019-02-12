@@ -1,65 +1,62 @@
 import express from 'express';
 const router = express.Router();
-import userDetails from '../data/users';
-import recipes from '../data/recipes';
-import workshops from '../data/workshops';
+import User from '../models/Users';
+import Recipe from '../models/Recipe';
+import Workshops from '../models/Workshop';
 
 router
-    .get('/', function (req, res) {
-        let userDetail, myRecipes = [], myWorkshops = [];
-
-        for(let i=0; i<userDetails.length; i++){
-            if(userDetails[i].username==req.session.username){
-                userDetail = userDetails[i];
-                break;
-            }
-        }
-        function isMine(arr, mylist) {
-            for(let i=0; i<arr.length; i++){
-                if(arr[i].author==req.session.username){
-                    mylist.push(arr[i])
-                }
-            }
-        }
-        isMine(recipes, myRecipes);
-        isMine(workshops, myWorkshops);
-
-        if(!req.session.username){
+    .get('/', function (req, res, next) {
+        if(!req.session.user){
             res.status(404)
                 .redirect('/')
         }
+        User.findOne({_id: req.session.user._id}).populate('_recipes _workshops').exec(function (err, user) {
+            if (err) return next(err);
 
-        res
-            .status(200)
-            .render('account',{
+            res.render('account', {
                 menuID: 'account',
-                user: req.session.username,
-                userDetail: userDetail,
-                myRecipes: myRecipes,
-                myWorkshops: myWorkshops
+                user: user,
+                login: req.session.user
             })
+        })
     })
-    .post('/', function (req,res) {
-        let isRecipe = true,
-            isWorkshop = false;
-        if (req.body) {
-            if (isRecipe){
-                let newRecipe = {};
-                newRecipe = req.body;
-                newRecipe.author = req.session.username;
-                newRecipe.image = "/svg/cake.svg";
-                recipes.push(newRecipe);
-                res.redirect('/account')
+    .post('/', function (req, res, next) {
+        if (!req.body) return res.sendStatus(400);
+
+        let newRecipe = new Recipe(req.body);
+        newRecipe.author = req.session.user._id;
+        newRecipe.image = "/svg/cake.svg";
+        newRecipe.save(function (err) {
+            if (err) {
+                return next(err);
             }
-            if (isWorkshop){
-                let newWorkshop = {};
-                newWorkshop = req.body;
-                newWorkshop.author = req.session.username;
-                newWorkshop.countOfSeats = 5;
-                workshops.push(newWorkshop);
-                res.redirect('/account')
+            User.findOneAndUpdate({_id: req.session.user._id},{$push: { _recipes: newRecipe }}, function (err, user){
+                console.log('Recipe has been saved to User');
+            });
+            console.log('newRecipe was successfully saved');
+        });
+        console.log(newRecipe);
+        res.redirect('/account')
+    })
+    .post('/workshop', function (req, res, next) {
+        if (!req.body) return res.sendStatus(400);
+
+        let newWorkshop = new Workshops(req.body);
+        newWorkshop.author = req.session.user._id;
+        newWorkshop.image = "/svg/baking.svg";
+        newWorkshop.cost = 1500;
+        newWorkshop.available = 6;
+        newWorkshop.save(function (err) {
+            if (err) {
+                return next(err);
             }
-        }
+            User.findOneAndUpdate({},{$push: { _workshops: newWorkshop }}, function (err, user){
+                console.log('Workshop has been saved to User');
+            });
+            console.log('newWorkshop was successfully saved');
+        });
+        console.log(newWorkshop);
+        res.redirect('/account')
     })
 
 module.exports = router;

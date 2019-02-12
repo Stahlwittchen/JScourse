@@ -1,5 +1,9 @@
 function tabs() {
     const parent = document.getElementsByClassName('tabs')[0];
+    if (!parent) {
+        return false
+    }
+
     let activeTab = document.getElementsByClassName('tabs__item')[0],
         activeContent = document.getElementsByClassName('tabs__content__item')[0];
 
@@ -26,10 +30,20 @@ function showHiddenText() {
         }
     }
 }
-if (parent.length) {
-    setTimeout(tabs, 0);
-};
 
+function orderWS () {
+    const thisTile = event.target.closest('.tile-wrapper__tile');
+    let tileBtn = thisTile.getElementsByClassName('popup')[0];
+
+    if(tileBtn.style.display == 'block')
+        tileBtn.style.display = 'none';
+    else
+        tileBtn.style.display = 'block';
+}
+
+setTimeout(tabs, 0);
+
+//setTimeout(orderWS, 0);
 
 setTimeout(showHiddenText, 0);
 

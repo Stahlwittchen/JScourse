@@ -5,12 +5,12 @@
     <main>
         <div class="user-details">
             <div class="user-details__image" >
-                <img src="<%= userDetail.avatar %>" alt="avatar" height="100px">
+                <img src="<%= user.avatar %>" alt="avatar" height="100px">
             </div>
             <div class="user-details__info">
-                <h1><%= user %></h1>
-                <p> <span>Email: </span> <%= userDetail.email %></p>
-                <p> <span>Phone: </span> <%= userDetail.phone %></p>
+                <h1><%= user.username %></h1>
+                <p> <span>Email: </span> <%= user.email %></p>
+                <p> <span>Phone: </span> <%= user.phone %></p>
                 <div>
                     <div class="tabs">
                         <span class="tabs__item">my Recipes</span>
@@ -20,46 +20,59 @@
                     <div class="tabs__content">
                         <div class="tabs__content__item">
                             <ul>
-                                <% myRecipes.forEach(function(item) { %>
-                                <li><a class="main-list__link " href="recipes/<%= item.title %>"><%= item.title %></a></li>
-                                <% }); %>
+                                <% if (user._recipes) { %>
+                                    <% user._recipes.forEach(function(item) { %>
+                                    <li><a class="main-list__link " href="recipes/<%= item._id %>"><%= item.title %></a></li>
+                                    <% }); %>
+                                <% } %>
+                                <% if (user._recipes==0) { %>
+                                    <p>You don't have any recipe</p>
+                                <% } %>
+                                <form method="post" action="/account">
+                                    <p>
+                                        <label>title: <input type="text" name="title"></label>
+                                    </p>
+                                    <p>
+                                        <label>description:
+                                            <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <input value="Add recipe" type="submit" class="bth">
+                                    </p>
+                                </form>
                             </ul>
-                            <form method="post" action="/account">
-                            <p>
-                            <label>title: <input type="text" name="title"></label>
-                            </p>
-                            <p>
-                            <label>description:
-                            <textarea name="desc" id="" cols="30" rows="10"></textarea>
-                            </label>
-                            </p>
-                            <p>
-                            <input value="Add recipe" type="submit" class="bth">
-                            </p>
-                            </form>
                         </div>
                         <div class="tabs__content__item">
                             <ul>
-                                <% myWorkshops.forEach(function(item) { %>
-                                <li><a class="main-list__link "><%= item.title %></a></li>
+                                <% if (user._workshops) { %>
+                                <% user._workshops.forEach(function(item) { %>
+                                <li><a class="main-list__link " href="#"><%= item.title %></a></li>
                                 <% }); %>
+                                <% } %>
+                                <% if (user._workshops==0) { %>
+                                <p>You don't have any workshops</p>
+                                <% } %>
+                                <form method="post" action="/account/workshop">
+                                    <p>
+                                        <label>title: <input type="text" name="title"></label>
+                                    </p>
+                                    <p>
+                                        <label>description:
+                                            <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>date: <input type="text" name="date"></label>
+                                    </p>
+                                    <p>
+                                        <input value="Add workshop" type="submit" class="bth">
+                                    </p>
+                                </form>
                             </ul>
-                            <form method="post" action="/account">
-                                <p>
-                                    <label>title: <input type="text" name="title"></label>
-                                </p>
-                                <p>
-                                    <label>description:
-                                        <textarea name="desc" id="" cols="30" rows="10"></textarea>
-                                    </label>
-                                </p>
-                                <p>
-                                    <input value="Add class" type="submit" class="bth">
-                                </p>
-                            </form>
                         </div>
                         <div class="tabs__content__item">
-                            You did do any request
+                            You didn't do any request
                         </div>
                     </div>
                 </div>

@@ -8,14 +8,18 @@
             </li>
             <li>
                 <a href="/workshop" class="main-nav__link <%= (menuID==='workshop')?'active':'' %>" >
-                    <!--<span class="main-nav__icon baker"></span>-->
                     Workshops
                 </a>
             </li>
             <li>
-                <a href="<%= user?'/account':'/auth' %>" class="main-nav__link <%= (menuID==='account')?'active':'' %>" >
-                    <%= user?user:`sign up` %>
+                <a href="<%= login?'/account':'/auth' %>" class="main-nav__link <%= (menuID==='account')?'active':'' %>" >
+                    <%= login?login.username:`sign up` %>
                 </a>
+                <% if (login) { %>
+                    <a href="<%= login?'/signout':false %>" class="main-nav__link" >
+                        <%= login?'Sign out':false %>
+                    </a>
+                <% } %>
             </li>
         </ul>
     </nav>

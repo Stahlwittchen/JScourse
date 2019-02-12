@@ -1,16 +1,35 @@
 <% include page-head.ejs %>
 <body>
-    <main>
-        <h1>Auth form</h1>
-        <form action="/auth" method="post" class="auth-form">
+<% include nav %>
+    <main class="sign-form">
+        <form action="/signin" method="post" class="auth-form">
+            <h1>Sign in</h1>
             <p>
-                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="Username" name="username" autocomplete="username">
             </p>
             <p>
-                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Password" name="password" autocomplete="current-password">
             </p>
             <p>
-                <input value="Enter" type="submit" class="bth">
+                <input value="Sign in" type="submit" class="bth">
+            </p>
+        </form>
+        <form action="/signup" method="post" class="auth-form">
+            <h1>Sign up</h1>
+            <p>
+                <input type="text" placeholder="Username" name="username" autocomplete="username">
+            </p>
+            <p>
+                <input type="password" placeholder="Password" name="password" autocomplete="current-password">
+            </p>
+            <p>
+                <input type="text" placeholder="Email" name="email" autocomplete="email">
+            </p>
+            <p>
+                <input type="text" placeholder="Phone" name="Phone" autocomplete="Phone">
+            </p>
+            <p>
+                <input value="Create an account" type="submit" class="bth">
             </p>
         </form>
     </main>
