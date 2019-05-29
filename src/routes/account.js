@@ -25,7 +25,7 @@ router
 
         let newRecipe = new Recipe(req.body);
         newRecipe.author = req.session.user._id;
-        newRecipe.image = "/svg/cake.svg";
+        newRecipe.image = "/images/cake.svg";
         newRecipe.save(function (err) {
             if (err) {
                 return next(err);
@@ -43,7 +43,7 @@ router
 
         let newWorkshop = new Workshops(req.body);
         newWorkshop.author = req.session.user._id;
-        newWorkshop.image = "/svg/baking.svg";
+        newWorkshop.image = "/images/workshop.jpg";
         newWorkshop.cost = 1500;
         newWorkshop.available = 6;
         newWorkshop.save(function (err) {

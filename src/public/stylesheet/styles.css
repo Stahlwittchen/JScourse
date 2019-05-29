@@ -3,39 +3,67 @@
   padding: 0;
   box-sizing: border-box; }
 
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
 body {
   font-family: 'Kalam', sans-serif;
-  background: rgba(34, 34, 34, 0.15);
-  color: #4e4646; }
-
-main {
-  width: 1024px;
-  margin: auto; }
+  background-image: linear-gradient(to right top, #fefedf, #fcf5d1, #fcebc3, #fce1b7, #fdd6ac, #fdcda2, #fdc499, #fdba91, #fbb087, #faa57d, #f89b74, #f6906c);
+  color: #fff;
+  font-size: 18px;
+  min-height: 100vh;
+  background-image: url(https://c7.alamy.com/comp/MHTTFX/homemade-raspberry-cakes-on-dark-border-background-free-space-for-your-text-sweet-dessert-made-with-love-MHTTFX.jpg);
+  background-attachment: fixed;
+  background-size: cover; }
 
 header {
-  background: rgba(34, 34, 34, 0.25); }
+  background: rgba(255, 255, 255, 0.1); }
 
-h1 {
-  font-family: 'Niconne', cursive;
-  color: #695e5e;
-  font-size: 50px;
-  padding: 30px 10px; }
+footer {
+  background: rgba(0, 0, 0, 0.1); }
+
+.footer {
+  width: 1024px;
+  margin: auto;
+  padding: 15px; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #fff; }
+
+h2 {
+  font-size: 36px;
+  padding: 0 0 20px 0;
+  text-align: center; }
+
+section {
+  padding: 100px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); }
+  section:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.1); }
+
+.section-cnt {
+  width: 1024px;
+  margin: auto; }
 
 .bth {
   padding: 7px 14px;
   border: 0;
   color: #fff;
-  background: rgba(34, 139, 34, 0.8);
   outline: none;
   cursor: pointer;
   font-family: 'Kalam', sans-serif;
   font-size: 16px;
-  line-height: 1; }
+  line-height: 1;
+  border-radius: 20px 5px;
+  box-shadow: inset -1px -1px 3px 0px #025a02;
+  background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.5), rgba(34, 139, 34, 0.8), #025a02); }
   .bth:hover {
-    background: forestgreen; }
+    background: linear-gradient(to left bottom, #025a02, rgba(34, 139, 34, 0.8), #025a02);
+    box-shadow: inset 0px 0px 4px 4px #025a02; }
 
 .btn-container {
   text-align: center;
@@ -49,7 +77,8 @@ a {
 
 .user-details {
   display: flex;
-  padding: 20px 0; }
+  margin-top: 50px;
+  padding: 50px; }
   .user-details__image img {
     margin: 30px 40px 30px 0; }
 
@@ -78,38 +107,44 @@ a {
       .tabs__content__item.active {
         display: block; }
 
-.tile-wrapper {
+.tiles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 50px;
   grid-row-gap: 20px; }
-  .tile-wrapper__tile {
-    padding: 40px 30px;
-    cursor: pointer;
-    box-shadow: inset 0 0 90px 30px #7d7c7c;
-    transition: all 1.5s;
-    border-radius: 20px;
-    position: relative; }
-    .tile-wrapper__tile--bg {
-      background-size: contain;
-      background-repeat: no-repeat;
+  .tiles__item {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    padding-top: 250px; }
+    .tiles__item--bg {
+      width: 100%;
+      height: 100%;
       background-position: center;
-      opacity: .4;
+      background-size: cover;
+      background-repeat: no-repeat;
       position: absolute;
-      top: 10px;
-      bottom: 10px;
-      right: 10px;
-      left: 10px;
       z-index: -1;
-      transition: all 1s; }
-    .tile-wrapper__tile:hover {
-      box-shadow: inset 0 0 150px 30px #7d7c7c; }
-      .tile-wrapper__tile:hover .tile-wrapper__tile--bg {
-        opacity: .7; }
-    .tile-wrapper__tile h2, .tile-wrapper__tile p {
+      border-radius: 25px;
+      top: 0; }
+    .tiles__item--cnt {
+      padding: 10px;
       text-align: center; }
-    .tile-wrapper__tile p {
-      font-weight: bold; }
+
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 25px; }
+  .tile__name h3 {
+    font-weight: bold;
+    font-size: 28px; }
+  .tile__desc {
+    font-weight: bold; }
+  .tile__ctrl {
+    flex-basis: 100%; }
 
 .hidden-text {
   position: absolute;
@@ -138,15 +173,17 @@ a {
 
 .popup {
   width: 300px;
-  box-shadow: -2px -2px 10px 5px #ffffff9c;
+  box-shadow: 0 0 10px 5px #22222240;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none; }
+  display: none;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5); }
   .popup__header, .popup__footer {
     padding: 10px 20px;
-    background: rgba(34, 34, 34, 0.15); }
+    background: rgba(34, 139, 34, 0.7); }
   .popup__body {
     padding: 10px 20px; }
     .popup__body input {
@@ -175,7 +212,7 @@ a {
 
 .main-nav {
   display: flex;
-  padding: 10px;
+  padding: 15px;
   list-style-type: none;
   width: 1024px;
   margin: auto; }
@@ -186,6 +223,7 @@ a {
       margin-left: auto; }
   .main-nav__link {
     color: #4e4646;
+    color: #fff;
     text-decoration: none;
     padding: 5px 10px;
     display: inline-block;
@@ -193,30 +231,37 @@ a {
     color: #fff;
     border-radius: 20px 5px; }
     .main-nav__link:hover, .main-nav__link.active {
-      background: linear-gradient(to left bottom, rgba(34, 34, 34, 0.4), rgba(34, 34, 34, 0.05)); }
+      background: linear-gradient(to left bottom, rgba(254, 254, 223, 0.4), rgba(254, 254, 223, 0.05)); }
 
 .main-list {
   list-style-type: none;
   text-decoration: none; }
   .main-list__link {
     color: #4e4646;
+    color: #fff;
     text-decoration: none;
     padding: 5px 10px;
     display: inline-block;
     line-height: 18px; }
 
-.auth-form input {
-  border: 0;
-  outline: 0;
-  background: linear-gradient(to left bottom, rgba(34, 34, 34, 0.4), rgba(34, 34, 34, 0.05));
-  color: #fff;
-  padding: 5px 10px;
-  margin: 5px; }
-  .auth-form input::placeholder {
-    font-family: 'Kalam', sans-serif; }
-  .auth-form input.bth:hover {
-    background: linear-gradient(to left bottom, rgba(34, 34, 34, 0.5), rgba(34, 34, 34, 0.15)); }
+.auth-form {
+  padding: 20px; }
+  .auth-form .form-input {
+    border: 0;
+    outline: 0;
+    background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px; }
+    .auth-form .form-input::placeholder {
+      font-family: 'Kalam', sans-serif;
+      color: #fff; }
+    .auth-form .form-input.bth:hover {
+      background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.15)); }
 
 .sign-form {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  width: 1024px;
+  margin: 100px auto;
+  background: rgba(0, 0, 0, 0.2); }

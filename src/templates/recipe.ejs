@@ -1,31 +1,32 @@
 <% include page-head.ejs %>
-
 <body>
 <% include nav.ejs %>
     <main>
-        <div class="user-details">
-            <div class="user-details__image" >
-                <img src="<%= currentRecipe.image %>" alt="image" height="200px">
-            </div>
-            <div class="user-details__info">
-                <h1> <%= currentRecipe.title %> <span class="author">By <%= currentRecipe.author.username %></span></h1>
-                <p> <%= currentRecipe.desc %></p>
-                <div>
-                    <div class="tabs">
-                        <span class="tabs__item">ingredients</span>
-                        <span class="tabs__item">steps</span>
-                    </div>
-                    <div class="tabs__content">
-                        <div class="tabs__content__item">
-                            There are no ingredients
-                        </div>
-                        <div class="tabs__content__item">
-                            There are no steps
-                        </div>
-                    </div>
+        <div class="section-cnt">
+            <section class="user-details">
+                <div class="user-details__image" >
+                    <img src="<%= currentRecipe.image %>" alt="image" height="200px">
                 </div>
+                <div class="user-details__info">
+                    <h1> <%= currentRecipe.title %> <span class="author">By <%= currentRecipe.author.username %></span></h1>
+                    <p> <%= currentRecipe.desc %></p>
+                    <div>
+                        <div class="tabs">
+                            <span class="tabs__item">ingredients</span>
+                            <span class="tabs__item">steps</span>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__content__item">
+                                There are no ingredients
+                            </div>
+                            <div class="tabs__content__item">
+                                There are no steps
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
+                </div>
+            </section>
         </div>
     </main>
 </body>

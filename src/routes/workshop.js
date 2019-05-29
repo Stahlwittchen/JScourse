@@ -5,6 +5,17 @@ import Request from '../models/Request';
 import User from "../models/Users";
 
 router
+    .get('/:id', function (req, res, next) {
+        Workshops.findById(req.params.id).populate('author _booked').exec(function (err, workshop){
+            if (err) return next(err);
+
+            res.render('workshop', {
+                currentWorkshop: workshop,
+                menuID: 'workshop',
+                login: req.session.user
+            })
+        })
+    })
     .get('/', function (req, res, next) {
         Workshops.find({}).populate('author _booked').exec(function (err, workshops){
             if (err) return next(err);
