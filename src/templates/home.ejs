@@ -1,14 +1,91 @@
 <% include page-head.ejs %>
-
 <body>
-    <% include nav.ejs %>
-    <main>
-        <h1>Here you can find all our most delicious recipes</h1>
-        <ul class="main-list">
-            <% recipes.forEach(function(item) { %>
-                <li><a class="main-list__link " href="recipes/<%= item.id %>"><%= item.title %></a></li>
-            <% }); %>
-        </ul>
-    </main>
+        <% include nav.ejs %>
+        <main>
+            <section id="about">
+                <div class="section-cnt">
+                    <h2><a href="#about">About us</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi eum explicabo, ipsum, nemo nobis, nulla
+                        odit perferendis quia ratione ullam ut voluptatum! Ad architecto consectetur, est fugiat ipsam
+                        laudantium libero modi neque praesentium quas quisquam quo sed tempora voluptatem voluptates! Blanditiis
+                        et id libero maiores nam, natus optio porro quaerat reprehenderit sed? Ducimus enim nulla obcaecati
+                        praesentium. Aliquam aperiam architecto consequatur cum debitis dicta dignissimos dolore expedita id
+                        illo iste laborum magnam maxime, molestiae, molestias natus nemo nesciunt numquam odio porro quas quasi
+                        quisquam quos recusandae saepe. Accusamus delectus deserunt, dicta ex harum id, illo magnam magni
+                        molestiae nihil nobis non quia rerum vitae, voluptates. Sed!
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div class="section-cnt">
+                    <h2><a href="#workshops">Our upcoming workshops</a></h2>
+                    <div class="tiles">
+                        <% workshops.forEach( item => { %>
+                        <div class="tiles__item">
+                            <div class="tiles__item--bg" style="background-image: url(<%= item.image %>)">
+                            </div>
+                            <div class="tiles__item--cnt tile">
+                                <div class="tile__name">
+                                    <h3><%= item.title %></h3>
+                                    <p><%= item.desc %></p>
+                                </div>
+                                <div class="tile__desc">
+                                    <p><%= item.date.toDateString() %> at 19.00 </p>
+                                    <p><%= item.cost %> rub </p>
+                                </div>
+                                <div class="btn-container tile__ctrl">
+                                    <input  onclick="orderWS()" class="bth" value="Join The Class">
+                                </div>
+                            </div>
+                            <div class="popup">
+                                <form  method="post" action="/workshop">
+                                    <div class="popup__header">Order Form</div>
+                                    <div class="popup__body">
+                                        <p>
+                                            <input type="text" name="parentID"  id="parentID" style="display: none" value="<%= item._id %>">
+                                            <label>
+                                                Name
+                                                <input type="text" name="name">
+                                            </label>
+                                            <label>
+                                                Phone
+                                                <input type="text" name="phone">
+                                            </label>
+                                            <label>
+                                                Number of tickets
+                                                <input type="number" name="count">
+                                            </label>
+                                        </p>
+                                    </div>
+                                    <div class="popup__footer">
+                                        <input class="bth" value="Submit" type="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="section-cnt">
+                    <h2><a href="#recipes">Top 10 Most Popular Recipes from Workshops</a></h2>
+                    <ul class="main-list">
+                        <% recipes.forEach(function(item) { %>
+                        <li><a class="main-list__link " href="recipes/<%= item.id %>"><%= item.title %></a></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2><a href="#map"> Where we are</a></h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15949.37292611641!2d30.333583893347797!3d60.02051893359623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696347f7df1bbcf%3A0x6876629ce06bfad9!2z0KHQvtGB0L3QvtCy0LrQsA!5e0!3m2!1sru!2sru!4v1559123247593!5m2!1sru!2sru"width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
+        </main>
+    <footer>
+        <div class="footer">
+           Developed by Stahlwittchen @ 2018-2019
+        </div>
+    </footer>
 </body>
 </html>

@@ -48,7 +48,7 @@ router
         newUser.email = email;
         newUser.phone = phone;
         newUser.admin = false;
-        newUser.avatar = "/svg/baker.svg";
+        newUser.avatar = "/images/baker.svg";
         newUser.save(function (err) {
             if (err) {
                 return next(err);

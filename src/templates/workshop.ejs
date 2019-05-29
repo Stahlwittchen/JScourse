@@ -1,59 +1,29 @@
 <% include page-head.ejs %>
 <body>
-    <% include nav %>
+<% include nav %>
     <main>
-        <h1>This is the list of our best workshops</h1>
-        <div class="tile-wrapper">
-            <% workshops.forEach( item => { %>
-                <div class="tile-wrapper__tile">
-                    <div class="tile-wrapper__tile--bg" style="background-image: url(<%= item.image %>)">
+        <div class="section-cnt">
+            <!--<section>-->
+                <div class="tile">
+                    <div class="btn-container tile__ctrl">
+                        <input  onclick="orderWS()" class="bth" value="Edit The Class">
                     </div>
-                    <div>
-                        <h2><%= item.title %></h2>
-                        <p><%= item.date.toDateString() %> | 19.00 </p>
-                        <p><%= item.cost %> rub </p>
+                    <h2 class="tile__ctrl"><%= currentWorkshop.title %></h2>
+                    <div class="user-details__image" >
+                        <img src="<%= currentWorkshop.image %>" alt="image" height="200px">
                     </div>
-                    <div class="hidden-text">
-                        <span class="hiden-content__control">
-                        </span>
-                        <div class="hiden-content">
-                            <p>By <%= item.author.username %></p>
-                            <p><%= item.desc %></p>
-                            <p>available <%= item.available - item._booked.length %> </p>
+                    <div class="tile__name">
+                        <p><%= currentWorkshop.desc %></p>
+                        <p><%= currentWorkshop.date.toDateString() %> at 19.00 </p>
+                        <p><%= currentWorkshop.cost %> rub </p>
+                        <p><%= currentWorkshop.available %>  </p>
+                        <p><%= currentWorkshop._booked.length %>  </p>
+                    </div>
+                    <div class="tile__desc">
 
-                            <div class="btn-container">
-                                <input  onclick="orderWS()" class="bth" value="Join The Class">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popup">
-                        <%= item.title %>
-                        <form  method="post" action="/workshop">
-                            <div class="popup__header">Order Form</div>
-                            <div class="popup__body">
-                                <p>
-                                    <input type="text" name="parentID"  id="parentID" style="display: none" value="<%= item._id %>">
-                                    <label>
-                                        Name
-                                        <input type="text" name="name">
-                                    </label>
-                                    <label>
-                                        Phone
-                                        <input type="text" name="phone">
-                                    </label>
-                                    <label>
-                                        Number of tickets
-                                        <input type="number" name="count">
-                                    </label>
-                                </p>
-                            </div>
-                            <div class="popup__footer">
-                                <input class="bth" value="Submit" type="submit">
-                            </div>
-                        </form>
                     </div>
                 </div>
-            <% }); %>
+            <!--</section>-->
         </div>
     </main>
 </body>

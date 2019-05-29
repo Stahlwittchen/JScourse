@@ -32,7 +32,7 @@ function showHiddenText() {
 }
 
 function orderWS () {
-    const thisTile = event.target.closest('.tile-wrapper__tile');
+    const thisTile = event.target.closest('.tiles');
     let tileBtn = thisTile.getElementsByClassName('popup')[0];
 
     if(tileBtn.style.display == 'block')

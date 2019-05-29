@@ -1,7 +1,5 @@
-$green: forestgreen;
 $base: #222;
 $heading: #695e5e;
-$white: rgba(255, 255, 255, .8);
 
 @mixin list {
   list-style-type: none;
@@ -9,6 +7,7 @@ $white: rgba(255, 255, 255, .8);
 }
 @mixin links {
   color: darken($heading, 10%);
+  color: #fff;
   text-decoration: none;
   padding: 5px 10px;
   display: inline-block;
@@ -21,44 +20,97 @@ $white: rgba(255, 255, 255, .8);
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Kalam', sans-serif;
-  background: fade-out($base, .85);
-  color: darken($heading, 10%);
+ul,ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-main {
-  width: 1024px;
-  margin: auto;
+body{
+  font-family: 'Kalam', sans-serif;
+  background-image: linear-gradient(to right top, #fefedf, #fcf5d1, #fcebc3, #fce1b7, #fdd6ac, #fdcda2, #fdc499, #fdba91, #fbb087, #faa57d, #f89b74, #f6906c);
+  //color: darken($heading, 10%);
+  color: #fff;
+  font-size: 18px;
+  min-height: 100vh;
+  background-image: url(https://c7.alamy.com/comp/MHTTFX/homemade-raspberry-cakes-on-dark-border-background-free-space-for-your-text-sweet-dessert-made-with-love-MHTTFX.jpg);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 header {
-  background: fade-out($base, .75);
+  background: fade-out(#fff, .9);
 }
 
-h1 {
-  font-family: 'Niconne', cursive;
-  color: $heading;
-  font-size: 50px;
-  padding: 30px 10px;
+footer {
+  background: fade-out(#000, .9);
+}
+
+.footer {
+  width: 1024px;
+  margin: auto;
+  padding: 15px;
 }
 
 a {
   text-decoration: none;
+  color: #fff;
+}
+
+h2 {
+  font-size: 36px;
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+
+section {
+  padding: 100px;
+  position: relative;
+  background: fade-out(#fff, .9);
+  &:nth-child(odd) {
+    background: fade-out(#000, .9);
+  }
+}
+.section-cnt {
+  width: 1024px;
+  margin: auto;
+}
+
+#about  {
+  //padding-right: 50%;
+  //background: rgba(0, 0, 0, 0.2);
+  //&:before {
+  //  content: "";
+  //  position: absolute;
+  //  right: 0;
+  //  top: 47%;
+  //  transform: translateY(-50%);
+  //  background: #e2dede no-repeat 50%;
+  //
+  //  z-index: -1;
+  //  border-radius: 50%;
+  //  height: 100%;
+  //  width: 800px;
+  //  opacity: .7;
+  //}
 }
 
 .bth {
   padding: 7px 14px;
   border: 0;
   color: #fff;
-  background: fade-out(forestgreen, .2);
+
   outline: none;
   cursor: pointer;
   font-family: 'Kalam', sans-serif;
   font-size: 16px;
   line-height: 1;
+  border-radius: 20px 5px;
+  box-shadow: inset -1px -1px 3px 0px #025a02;
+  background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.5), rgba(34, 139, 34, .8), rgb(2, 90, 2));
   &:hover {
-    background: forestgreen;
+    background: linear-gradient(to left bottom, rgb(2, 90, 2), rgba(34, 139, 34, .8), rgb(2, 90, 2));
+    box-shadow: inset 0px 0px 4px 4px #025a02;
   }
 }
 
@@ -79,7 +131,8 @@ a {
 
 .user-details {
   display: flex;
-  padding: 20px 0;
+  margin-top: 50px;
+  padding: 50px;
   &__info {
 
   }
@@ -126,46 +179,51 @@ a {
   }
 }
 
-.tile-wrapper {
+.tiles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 50px;
   grid-row-gap: 20px;
-  &__tile{
-    padding: 40px 30px;
-    cursor: pointer;
-    box-shadow: inset 0 0 90px 30px #7d7c7c;
-    transition: all 1.5s;
-    border-radius: 20px;
+  &__item{
     position: relative;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 25px;
+    padding-top: 250px;
     &--bg {
-      background-size: contain;
-      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
       background-position: center;
-      opacity: .4;
+      background-size: cover;
+      background-repeat: no-repeat;
       position: absolute;
-      top: 10px;
-      bottom: 10px;
-      right: 10px;
-      left: 10px;
       z-index: -1;
-      transition: all 1s;
+      border-radius: 25px;
+      top: 0;
     }
-    &:hover {
-      box-shadow: inset 0 0 150px 30px #7d7c7c;
-      .tile-wrapper__tile--bg {
-        opacity: .7;
-      }
-    }
-    h2 {
-
-    }
-    h2, p{
+    &--cnt {
+      padding: 10px;
       text-align: center;
     }
-    p {
+  }
+}
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  &__name {
+    h3 {
       font-weight: bold;
+      font-size: 28px;
     }
+  }
+  &__desc {
+    font-weight: bold;
+  }
+  &__ctrl {
+    flex-basis: 100%;
   }
 }
 .hidden-text {
@@ -177,19 +235,19 @@ a {
     display: none;
     &__control {
       display: block;
-      border-left: 15px solid  $white;
+      border-left: 15px solid  rgba(255, 255, 255, .8);
       border-right: 15px solid  transparent;
       border-top: 20px solid transparent;
-      border-bottom: 20px solid $white;
+      border-bottom: 20px solid rgba(255, 255, 255, .8);
       position: relative;
-      //background: $white;
+      //background: rgba(255, 255, 255, .8);
       width: auto;
     }
   }
   &.active {
     left: 0;
     bottom: 0;
-    background: $white;
+    background: rgba(255, 255, 255, .8);
     border-radius: 20px;
     .hiden-content {
       display: block;
@@ -203,15 +261,17 @@ a {
 
 .popup {
   width: 300px;
-  box-shadow: -2px -2px 10px 5px #ffffff9c;
+  box-shadow: 0 0 10px 5px #22222240;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  z-index: 2;
+  background: rgba(0, 0, 0, .5);
   &__header, &__footer {
     padding: 10px 20px;
-    background: rgba(34, 34, 34, 0.15);
+    background: rgba(34, 139, 34, 0.7);
   }
   &__body {
     padding: 10px 20px;
@@ -254,7 +314,7 @@ a {
 
 .main-nav {
   display: flex;
-  padding: 10px;
+  padding: 15px;
   list-style-type: none;
   width: 1024px;
   margin: auto;
@@ -270,7 +330,7 @@ a {
     color: #fff;
     border-radius: 20px 5px;
     &:hover, &.active {
-      background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
+      background: linear-gradient(to left bottom, fade-out(#FEFEDF, .6), fade-out(#FEFEDF, .95));
     }
   }
 }
@@ -282,19 +342,21 @@ a {
 }
 
 .auth-form {
-  input{
+  padding: 20px;
+  .form-input{
     border: 0;
     outline: 0;
-    background: linear-gradient(to left bottom, fade-out($base, .6), fade-out($base, .95));
+    background: linear-gradient(to left bottom, fade-out(#fff, .6), fade-out(#fff, .95));
     color: #fff;
     padding: 5px 10px;
     margin: 5px;
 
     &::placeholder {
       font-family: 'Kalam', sans-serif;
+      color: #fff;
     }
     &.bth:hover {
-      background: linear-gradient(to left bottom, fade-out($base, .5), fade-out($base, .85));
+      background: linear-gradient(to left bottom, fade-out(#fff, .5), fade-out(#fff, .85));
     }
   }
 }
@@ -302,4 +364,7 @@ a {
 .sign-form {
   display: flex;
   justify-content: space-around;
+  width: 1024px;
+  margin: 100px auto;
+  background: fade-out(#000, .8);
 }

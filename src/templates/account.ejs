@@ -2,8 +2,8 @@
 <body>
 <% include nav %>
 <main>
-    <main>
-        <div class="user-details">
+    <div class="section-cnt">
+        <section class="user-details">
             <div class="user-details__image" >
                 <img src="<%= user.avatar %>" alt="avatar" height="100px">
             </div>
@@ -47,7 +47,7 @@
                             <ul>
                                 <% if (user._workshops) { %>
                                 <% user._workshops.forEach(function(item) { %>
-                                <li><a class="main-list__link " href="#"><%= item.title %></a></li>
+                                <li><a class="main-list__link " href="workshop/<%= item._id %>"><%= item.title %></a></li>
                                 <% }); %>
                                 <% } %>
                                 <% if (user._workshops==0) { %>
@@ -78,8 +78,8 @@
                 </div>
 
             </div>
-        </div>
-    </main>
+        </section>
+    </div>
 </main>
 </body>
 </html>
