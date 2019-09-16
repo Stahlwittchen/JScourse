@@ -49,7 +49,7 @@ section {
   width: 1024px;
   margin: auto; }
 
-.bth {
+.btn {
   padding: 7px 14px;
   border: 0;
   color: #fff;
@@ -61,9 +61,14 @@ section {
   border-radius: 20px 5px;
   box-shadow: inset -1px -1px 3px 0px #025a02;
   background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.5), rgba(34, 139, 34, 0.8), #025a02); }
-  .bth:hover {
+  .btn:hover {
     background: linear-gradient(to left bottom, #025a02, rgba(34, 139, 34, 0.8), #025a02);
     box-shadow: inset 0px 0px 4px 4px #025a02; }
+  .btn--secondary {
+    background: linear-gradient(to left bottom, rgba(254, 254, 223, 0.6), rgba(0, 0, 0, 0.8)); }
+    .btn--secondary:hover {
+      background: linear-gradient(to left bottom, rgba(254, 254, 223, 0.6), rgba(0, 0, 0, 0.8));
+      box-shadow: inset 0px 0px 4px 4px #00000052; }
 
 .btn-container {
   text-align: center;
@@ -256,7 +261,7 @@ section {
     .auth-form .form-input::placeholder {
       font-family: 'Kalam', sans-serif;
       color: #fff; }
-    .auth-form .form-input.bth:hover {
+    .auth-form .form-input.btn:hover {
       background: linear-gradient(to left bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.15)); }
 
 .sign-form {

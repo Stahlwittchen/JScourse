@@ -95,7 +95,7 @@ section {
   //}
 }
 
-.bth {
+.btn {
   padding: 7px 14px;
   border: 0;
   color: #fff;
@@ -111,6 +111,13 @@ section {
   &:hover {
     background: linear-gradient(to left bottom, rgb(2, 90, 2), rgba(34, 139, 34, .8), rgb(2, 90, 2));
     box-shadow: inset 0px 0px 4px 4px #025a02;
+  }
+  &--secondary {
+    background: linear-gradient(to left bottom, fade-out(#FEFEDF, .4), fade-out(#000, .2));
+    &:hover {
+      background: linear-gradient(to left bottom, fade-out(#FEFEDF, .4), fade-out(#000, .2));
+      box-shadow: inset 0px 0px 4px 4px #00000052;
+    }
   }
 }
 
@@ -355,7 +362,7 @@ section {
       font-family: 'Kalam', sans-serif;
       color: #fff;
     }
-    &.bth:hover {
+    &.btn:hover {
       background: linear-gradient(to left bottom, fade-out(#fff, .5), fade-out(#fff, .85));
     }
   }

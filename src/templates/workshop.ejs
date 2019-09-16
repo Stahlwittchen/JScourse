@@ -6,18 +6,26 @@
             <!--<section>-->
                 <div class="tile">
                     <div class="btn-container tile__ctrl">
-                        <input  onclick="orderWS()" class="bth" value="Edit The Class">
+                        <input  onclick="orderWS()" class="btn" value="Edit The Class">
                     </div>
                     <h2 class="tile__ctrl"><%= currentWorkshop.title %></h2>
                     <div class="user-details__image" >
                         <img src="<%= currentWorkshop.image %>" alt="image" height="200px">
                     </div>
                     <div class="tile__name">
-                        <p><%= currentWorkshop.desc %></p>
-                        <p><%= currentWorkshop.date.toDateString() %> at 19.00 </p>
-                        <p><%= currentWorkshop.cost %> rub </p>
-                        <p><%= currentWorkshop.available %>  </p>
-                        <p><%= currentWorkshop._booked.length %>  </p>
+                        <p>Desc: <%= currentWorkshop.desc %></p>
+                        <p>Date: <%= currentWorkshop.date.toDateString() %> at 19.00 </p>
+                        <p>Cost: <%= currentWorkshop.cost %> rub </p>
+                        <p>Available: <%= currentWorkshop.available %> persons </p>
+
+                        <% if (currentWorkshop._booked.length>0) { %>
+                        <span>Booked by:</span>
+                            <ol style="list-style-type: circle">
+                                <% currentWorkshop._booked.forEach(function(item) { %>
+                                <li><span><%= item.name %></span> <span>(P.): <%= item.phone %></span></li>
+                            <% }); %>
+                            </ol>
+                        <% } %>
                     </div>
                     <div class="tile__desc">
 
